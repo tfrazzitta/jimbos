@@ -1,0 +1,90 @@
+     #prev {
+      box-shadow:0px 0px 5px 5px #463f73 !important;
+    }
+
+  .num
+  {
+      /*color: rgb(71, 64, 115)!important;*/
+      font-size: 50px;
+     /* text-shadow: 5px 5px 5px rgb(214, 192, 108)!important ;*/
+     text-shadow: 5px 5px 5px rgb(71, 64, 115) !important;
+      font-weight:bold;
+  }
+
+  .clock{
+    font-size: 30px ;
+    text-shadow: 5px 5px 5px black;
+    color:white !important;
+  }
+
+
+    .white-text{
+      color: white !important;
+    }
+    .white-text-1{
+      color: white !important;
+      position: initial !important;
+      font-size: 30px !important;
+    }
+    #flex{
+      padding-left:10px;
+    }
+
+    #event-img{
+      height: 100px;
+      width: 100%;
+      border: 1px solid white;
+    }
+
+    .block-testimony .person{
+      flex:0 0 135px !important;
+    }
+
+    .overflow{
+      overflow:scroll;
+      height: 500px;
+      -webkit-overflow-scrolling: touch;
+/*       background: black; */
+/*       border-bottom: 10px solid red; */
+    }
+
+    #poster{
+      overflow:hidden !important;
+      width: 100%;
+      height:100%;
+    }
+  
+
+    .font{
+      font-family: "Playfair Display";
+    }
+
+
+    @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) { 
+
+.num{
+font-size: 29px !important;
+}
+
+.clock{
+  font-size: 15px !important;
+}
+
+
+}
+
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+ .num{
+font-size: 29px !important;
+}
+
+.clock{
+  font-size: 15px !important;
+}
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jimbos Bar &mdash; Colorlib Website Template 777</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://calendar.google.com/calendar/static/ef3f99a173d6957726270e024c6668b9embedcompiled_fastui.css">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/custom_calendar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <script type="text/javascript" src="https://www.google.com/calendar/969ff39784188d8d017a0c60c8f2558aembedcompiled__en_gb.js"></script>
+    
+    <style>
+
+
+html,body{
+     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+    overflow: hidden !important;
+    /*padding: 0;*/
+    
+}
+
+
+
+    </style>
+  </head>
+  <body id="x" style="background-image: url(images/shrimp.jpg)" class="site-blocks-cover overlay">
+
+
+  
+
+
+  </body>
+
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+   <script src="https://momentjs.com/downloads/moment-timezone.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/load.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/menu-items.js"></script>
+  <script> $("#n").hide();$("#hide").hide();
+      document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+                  }
+                });
+                }
+      });
+
+
+var backgroundArray=["url(images/drinks.jpg)","url(images/tim.jpg)","url(images/jimbo-night.jpg)","url(images/friends.jpg)","url(images/family.jpg)"]
+var a = 0 
+
+  setInterval(function(){
+ if(a==backgroundArray.length-1){
+    a=0;
+
+ }
+
+ else{
+        $("#x").css("background-image",backgroundArray[a]);
+   a++;
+ }
+  
+  },5000);
+
+
+
+
+    $("#x").stop().fadeOut("1000", function () {
+        $("#x").css("background-image",backgroundArray[a]).fadeIn(1000);
+    });
+
+
+
+</script>
+
+<style>
+.blackout{
+  background-color: black !important;
+}
+
+p,u{
+  text-align: center;
+  color: white;
+}
+
+h2{
+      color: #484077;
+      text-shadow: 0px 6px 30px #f23a2e
+}
+
+
+
+.h5{
+  color: #f23a2e;
+  font-weight: bold;
+}
+
+blockquote {
+    color: #484077;
+}
+
+</style>
+
+</html>

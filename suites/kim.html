@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jimbos Bar & Grill</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://calendar.google.com/calendar/static/ef3f99a173d6957726270e024c6668b9embedcompiled_fastui.css">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    
+    
+    
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/custom_calendar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="https://www.google.com/calendar/969ff39784188d8d017a0c60c8f2558aembedcompiled__en_gb.js"></script>
+      <script src="js/jquery-3.3.1.min.js"></script>
+    
+    </style>
+  </head>
+  <body>
+ 
+<div class="site-wrap">
+  <div class="container">
+  <div class="jumbotron" style="background-color: transparent;"></div>
+    <div class="row align-items-center">
+
+      <div class="col-md-12 text-center" data-aos="fade">
+          <img src="images/spinner.gif" class="img-fluid" id="loader">
+      </div>
+
+      <div class="col-md-12 text-center"><h1 class="text-centert">For Kim</h1><br><br>
+      <!--   <form action="/kim" method="POST" id="kim-form">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Paste in your link</label>
+            <input class="form-control" name="link">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form> -->
+        <br>
+            <!-- <label for="exampleInputEmail1">or</label> -->
+
+          <div class="div"><h3>Choose File</h3>
+             <form action="/profile" method="post" enctype="multipart/form-data">
+              <input type="file" name="avatar" id="file-1">
+              <input type="submit" value="upload" id="file" multiple="multiple" onchange="AutomaticClose()">
+             </form>
+          </div>  <br><br><br><br><br>
+<!-- 
+          <form action="/del" method="post">
+              <input type="submit" class="btn-primary" value="Delete Image">
+          </form>   -->
+              <button type="submit" class="btn-primary" id="Delete">Delete</button><br><br>
+              <p id="del-message" style="color: black"> </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $("#loader").hide();
+    $("#file").hide();
+    $("#file-1").change(function() {$("#file").trigger("click");$("#loader").fadeIn();});
+
+
+$(document).on("click","#Delete",function(){
+
+
+      $.ajax({
+                  method: "get",
+                  url: "/del"
+                }).done(function(data) {
+                  $("#del-message").html(data).fadeOut(5000)
+            })
+})
+
+</script>
+
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/load.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/menu-items.js"></script>
+
+  <style>
+    
+    #file-1{
+   /* position: absolute;*/
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+    }
+
+    .div{
+/*    left: -150px;*/
+    padding: 5px 50px;
+/*    position: relative;*/
+    color: black;
+    border-radius: 2px;
+    text-align: center;
+  /*  float: left;*/
+    cursor: pointer;
+    border-radius: 5%;
+    box-shadow: 0 0 5px red;
+    font-size: 26px;
+    line-height: 0px;
+    background-color: red;
+    }
+
+
+  </style>
+  </body>
+</html>
