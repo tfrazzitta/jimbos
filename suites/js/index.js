@@ -1,4 +1,7 @@
+
+$(document).on("click","#close-modal",function(){
 setTimeout(function(){$("#n").fadeIn(1000);},700);
+})
 
 function ResizeNavBar2(){
       var win2 = $(window).width();

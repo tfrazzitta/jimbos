@@ -106,6 +106,32 @@
                   </div>
                 </div>
               </div>  -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="z-index: -1 !important">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <img src= "images/t-o.jpg" class="img-responsive" style="width: 100%">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="font-family:Playfair Display;background-color: #f23a2e;color:#fff!important">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .modal-backdrop.show {
+    display: none;
+  }
+</style>
+
+
+
   </div>
 
 
@@ -129,7 +155,9 @@
   <script src="js/index.js"></script>
   <script src="js/main.js"></script>
   <script src="js/menu-items.js"></script>
-  <script> $("#n").hide();$("#hide").hide();
+  <script>
+   $('#exampleModal').modal('toggle');
+   $("#n").hide();$("#hide").hide();
       document.addEventListener('DOMContentLoaded', function() {
                 var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
                 for (var i = 0; i < total; i++) {
