@@ -20,3 +20,14 @@ April 23, 2020
 				y. Recommmendations: when to-go is not needed delete 
 	 			   close-modal button click function-keep setTimeout
 
+April 24,2020
+	I updated the following files
+		1. index.html
+
+	Updates:
+		1. Added a Door Dash Button - Lines 90-96
+		2. Changed line 86 
+			a. padding-top: 450px to 400px
+			
+
+
