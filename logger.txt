@@ -1,0 +1,22 @@
+
+April 23, 2020
+
+	I updated the following files:
+		1. index.html
+		2. index.js
+
+	Updates:
+		1. Created a Pop Up Modal for Togo 
+			a. index.html
+				z. line 110-133 added a modal to the page
+				y. line 160 - $('#exampleModal').modal('toggle');
+				x. Recommendations: when to-go is not needed Delete
+				   lines 110-133 , line 160
+
+			b. index.js
+				z. added a button click with id # close-modal 
+				   to close the modal and timed the main Jimbos
+				   Logo from enter the screen (setTimeout)
+				y. Recommmendations: when to-go is not needed delete 
+	 			   close-modal button click function-keep setTimeout
+
