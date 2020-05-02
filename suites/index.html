@@ -140,8 +140,8 @@ COVID IS Over -->
 
 
   </div>
-
-
+</div>
+</div>
 
   <script src="https://momentjs.com/downloads/moment.js"></script>
   <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
@@ -194,14 +194,14 @@ var imgData;
 
 
 
-$.ajax({
-            method: "GET",
-            url: "/uploads"
-          }).done(function(data) {
-            console.log(data)
-            imgData= data;
-             poster="url(data:image/jpeg;base64,"+imgData+")"
-            $("#x").css("background-image",poster)
+// $.ajax({
+//             method: "GET",
+//             url: "/uploads"
+//           }).done(function(data) {
+//             console.log(data)
+//             imgData= data;
+//              poster="url(data:image/jpeg;base64,"+imgData+")"
+//             $("#x").css("background-image",poster)
 
       // })
 
@@ -210,22 +210,19 @@ $.ajax({
 var backgroundArray=["url(images/drinks.jpg)","url(images/shrimp.jpg)","url(images/tim.jpg)","url(images/jimbo-night.jpg)","url(images/friends.jpg)","url(images/family.jpg)"]
 var a = 1 
 
-setInterval(function(){
-
+setInterval(function(){  
   console.log(backgroundArray)
    if(a==backgroundArray.length){
-       $("#x").css("background-image",poster);
-       a=0;
-
+         $("#x").css("background-image",poster);
+         a=0;
    }
 
    else{
-     $("#x").css("background-image",backgroundArray[a]);
-     a++;
+       $("#x").css("background-image",backgroundArray[a]);
+       a++;
    }
-
 },5000);
-})
+//})
 </script>
 
 <style>
