@@ -5,8 +5,11 @@
 
 .icon-menu:before {
     content: "\e540";
-    color: #f23a2e;
+    color: whitesmoke;
     font-size: 35px;
+    text-shadow: 1px 1px 1px #f23a2e;
+    position: relative;
+    bottom: -7px;
 }
 
 
