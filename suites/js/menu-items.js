@@ -624,7 +624,7 @@ var drinks=[
 
               {
                 
-                link:"images/img_3.jpg",
+                link:"images/dream.jpg",
                 heading:"Dreamsicle",
                 p:"Whipped Cream Vodka, Fresh Orange Juice and Whipped Cream, shaken over ice "
           
@@ -702,7 +702,7 @@ var drinks=[
               },
                {
                 
-                link:"images/coco-bango.jpg",
+                link:"images/coco-bango.JPG",
                 heading:"Coco Bango",
                 p:"Bacardi Banana Rum, Bacardi Coconut Rum, Banana Puree and Mango Puree"
           
