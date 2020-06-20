@@ -553,11 +553,6 @@ var fajita=[
 
 
 var drinks=[
- //              {
- // //crushes               // link:"images/img_1.jpg",
- //                heading:"Crushes",
- //                p:"All crushed drinks are made with 100 % fresh pressed fruit-very refreshing!"
- //              },
 
               {
 
@@ -576,25 +571,22 @@ var drinks=[
 
               {
                  
-                link:"images/img_4.jpg",
+                link:"images/ruby.jpg",
                 heading:"Ruby Red Crush",
                 p:"Grapefruit Vodka, Triple Sec, Fresh Pressed Grapefruit Juice and Sprite"
               },
-
-
- //              {
- // //specialty          
- //                // link:"images/img_3.jpg",
- //                heading:"Specialty Drinks",
- //                p:"Bartender Created Summertime Favorites"
-          
- //              },
 
               {
                  
                 link:"images/tiki-tea.jpg",
                 heading:"Tiki Tea",
                 p:"Sweet Tea Vodka and Fresh Lemonade"
+              },
+              
+              {
+                link:"images/mojito.jpg",
+                heading:"Mojito",
+                p:"muddled mint, lime, light rum, club soda and a splash of simple syrup"
               },
 
 
@@ -645,24 +637,18 @@ var drinks=[
                 p:"Strawberry Vodka, Cranberry Juice and Whipped Cream, shaken over ice"
               },
               
-               {
-                link:"images/img_4.jpg",
-                heading:"Grown Up Coffee",
-                p:"Grey Goose Vodka, Creme De Cacao and Nitro Cold Brew over ice in a pint glass"
-              },
-              {
-                link:"images/img_4.jpg",
-                heading:"Mexican Iced Coffee",
-                p:"Cafe Patron, Kahlua, Nitro Cold Brew and half and half"
-              },
+              //  {
+              //   link:"images/img_4.jpg",
+              //   heading:"Grown Up Coffee",
+              //   p:"Grey Goose Vodka, Creme De Cacao and Nitro Cold Brew over ice in a pint glass"
+              // },
+              // {
+              //   link:"images/img_4.jpg",
+              //   heading:"Mexican Iced Coffee",
+              //   p:"Cafe Patron, Kahlua, Nitro Cold Brew and half and half"
+              // },
 
  //              {
- // Rum Buckets // 
- //                 link:"images/img_3.jpg",
- //                heading:"Rum Buckets",
- //                p:"Big enough to share!"
-          
- //              },
 
               {
                  
@@ -674,7 +660,7 @@ var drinks=[
 
               {
                 
-                link:"images/img_3.jpg",
+                link:"images/drinks.jpg",
                 heading:"Dragon Bite",
                 p:"Bacardi Dragonberry and Limon Rum, Amaretto, Cranberry and Lemon top"
           
@@ -682,13 +668,13 @@ var drinks=[
 
               {
                  
-                link:"images/img_4.jpg",
+                link:"images/drinks.jpg",
                 heading:"Mermaid Water",
                 p:"Bacardi Mango, Pineapple and Coconut Rum,Pineapple Juice, Fresh, Orange Juice and Blue Curacao topped with Sprite"
               },
               {
                 
-                link:"images/img_3.jpg",
+                link:"images/drinks.jpg",
                 heading:"Mai, not your, Tai",
                 p:"Bacardi Tangerine Rum, Triple Sec, Amaretto,Grenadine, Orange Juice, Pineapple Juice topped with a Bacardi Oakheart floater"
           
@@ -716,7 +702,7 @@ var drinks=[
               },
                {
                 
-                link:"images/img_3.jpg",
+                link:"images/coco-bango.jpg",
                 heading:"Coco Bango",
                 p:"Bacardi Banana Rum, Bacardi Coconut Rum, Banana Puree and Mango Puree"
           
@@ -724,7 +710,7 @@ var drinks=[
 
               {
                  
-                link:"images/img_4.jpg",
+                link:"images/choc-monkey.jpg",
                 heading:"Chocolate Monkey",
                 p:"Bacardi Banana Rum, Dark Creme de Cacao,Coffee Liqueur and Vanilla Cream"
               },
