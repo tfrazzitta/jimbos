@@ -584,7 +584,7 @@ var drinks=[
               },
               
               {
-                link:"images/mojito.jpg",
+                link:"images/mojita.jpg",
                 heading:"Mojito",
                 p:"muddled mint, lime, light rum, club soda and a splash of simple syrup"
               },
