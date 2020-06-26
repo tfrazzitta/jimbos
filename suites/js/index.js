@@ -1,7 +1,6 @@
 
-$(document).on("click","#close-modal",function(){
 setTimeout(function(){$("#n").fadeIn(1000);},700);
-})
+
 //Take Out Modal...Get Rid Of MOdal when Summer OCCurs or 
 // WHEN COVID IS Over get rid of click function that closes modal
 // #n closes the take modal
