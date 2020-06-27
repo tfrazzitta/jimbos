@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["LMvgK"]); }
+
+__d("RegionDatetimePatterns",[],(function(a,b,c,d,e,f){e.exports=Object.freeze({DATE_SHORT:"date_short",DATETIME_SHORT_SHORT:"dateTime_short_short",TIME_SHORT:"time_short",TIME_MEDIUM:"time_medium",J:"j"})}),null);
