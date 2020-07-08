@@ -101,8 +101,7 @@
   <script src="js/index.js"></script>
   <script src="js/main.js"></script>
   <script src="js/menu-items.js"></script>
-  <script> $('#exampleModal').modal('toggle');
-</script>
+  <script> </script>
 
 
 <script>
@@ -112,12 +111,24 @@ $.ajax({
   method: "get",
   url: "/jim"
 }).done(function(data) {
-  console.log(data)
-  for(i=0;i<data[0].missing.length;i++){
-    console.log(data[0])
-    $("#mod").append("<ul>" + data[0].missing[i]+ "</ul>")
+  console.log(data[0].missing);    
+  console.log("here")
+  if(data.length==0 || data[0].missing.length==0){
+   // return false;
+   $( "#close-modal" ).trigger( "click" );
+
 
   }
+  else{
+      $('#exampleModal').modal('toggle');
+
+      for(i=0;i<data[0].missing.length;i++){
+        console.log(data[0])
+        $("#mod").append("<ul>" + data[0].missing[i]+ "</ul>")
+      }
+  }
+
+
 
   
 })
