@@ -320,7 +320,7 @@ app.get("/uploads",function(req,res){
 
 app.get("/find",function(req,res){Image.find({}).exec(function(error,data){res.send(data)})})
 
-
+app.get("/qr", function(req, res) {res.sendFile(path.join(__dirname, "../suites/qr.html"));});
 app.get("/manager", function(req, res) {res.sendFile(path.join(__dirname, "../suites/kim.html"));});
 app.get("/about", function(req, res) {res.sendFile(path.join(__dirname, "../suites/about.html"));});
 app.get("/events", function(req, res) {res.sendFile(path.join(__dirname, "../suites/events.html"));});
