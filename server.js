@@ -30,7 +30,7 @@ else{
 
 
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("./suites"));
 
 var db= mongoose.connection;

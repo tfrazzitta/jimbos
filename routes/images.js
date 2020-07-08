@@ -16,6 +16,7 @@ const code ='node_modules/async/dist/ssn.json';
 
 module.exports=function(app){
   
+
 ///GOOGLE CALENDAR 
 app.get("/check-cred", function(req,res1){
 // credentials.json
@@ -159,7 +160,7 @@ app.get("/check-cred", function(req,res1){
 
 ///UPLOAD IMAGE FOR KIM
 ///this uploads images
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
+app.post('/profile-1', upload.single('avatar'), function (req, res, next) {
 
   fs.readdir("./kimUploads", function(err, data) {
     Image.find({}).exec(function(error,data2){if (error){console.log('err: ' + error);}
@@ -205,45 +206,42 @@ app.post('/profile', upload.single('avatar'), function (req, res, next) {
 
 
 
-    // if(data.length==2 && req.file.filename===data[0]){
-    //   fs.unlink("./kimUploads/"+data[1], (err) => {
-    //     if (err) throw err;
-    //     res.redirect('/')
-    //   })
 
-    // }
 
-    // else if(data.length==2 && req.file.filename===data[1]){
-    //   fs.unlink("./kimUploads/"+data[0], (err) => {
-    //     if (err) throw err;
-    //      res.redirect('/')
-    //   })
-    // }
-
-    // else{
-    //   console.log("HEREE")
-    //    res.redirect('/')
-    // }
+app.post('/profile', function (req, res, next) {
+var itemArray=[];
+if(req.body.item1 != ""){ itemArray.push(req.body.item1)}
+if(req.body.item2 != ""){ itemArray.push(req.body.item2)}
+if(req.body.item3 != ""){ itemArray.push(req.body.item3)}
+if(req.body.item4 != ""){ itemArray.push(req.body.item4)}
 
 
 
+Image.find({}).exec(function(error,data){
+  if(data.length==0){
+        console.log("NEW DOC")
+         var NewImage= new Image ({missing: itemArray
+          })
+          NewImage.save(function(err,doc){console.log(doc)})
+  }
+  
+  else{
+            console.log("Existing DOC")
+            console.log(data[0].missing)
+            console.log(req.body)
+
+            Image.updateMany({}, {$push: {missing: {$each:itemArray}}}).exec(function(error,data){
+              Image.find({}).exec(function(error,data1){ console.log(data1)})
+            })
+    
+  }
 
 
-////this spits out the images **Im drunkl
-// app.get("/uploads",function(req,res){
-//     fs.readdir("./kimUploads", function( err, data ) {
-//       if(data.length==0){console.log("No picsss")}
-     
-//      fs.readFile("./kimUploads/"+data[0], function(err, imageData){
-//         if(err){
-//         }else{
-//           var base64data = new Buffer(imageData, 'binary').toString('base64');
-//           res.set({'Content-Type':'image/jpeg'});
-//           res.send(base64data);
-//         }
-//       })
-//     })
-// })
+})
+
+res.redirect("/manager")
+  })
+
 
  
 app.get("/uploads",function(req,res){
@@ -291,14 +289,39 @@ app.get("/uploads",function(req,res){
 
 })
 
-// var pathArray= [  (“/about”,”/events”,”/timeline”,”/social”,”/menu”,”/gallery”,”/mobile-uploads”,”/Instagram”];
-
-// for ( i =0 ; i<pathArray.length; i++){
-//   app.get(pathArray[i],function(req,res){ res.sendFile(path.join(_dirname , “../suites”+pathArray[i]+”.html”) ) } );
-// }
 
 
 
+
+  app.post("/del-box",function(req,res){
+   console.log(req.body.checkboxArray)
+   var check= req.body.checkboxArray;
+  var callsCompleted2=0;
+   for(i=0;i<check.length;i++){
+    callsCompleted2++;
+    Image.update({},{ $pull: { missing:
+    { $in: [ check[i] ] }} },
+    { multi: true }).exec(function(error,data3){
+      if(error){console.log(error)}
+      else{console.log(data3)}
+   
+})
+
+    if(callsCompleted2==check.length){
+      res.redirect("/manager")
+    }
+
+
+   }
+
+})
+
+
+
+app.get("/find",function(req,res){Image.find({}).exec(function(error,data){res.send(data)})})
+
+
+app.get("/manager", function(req, res) {res.sendFile(path.join(__dirname, "../suites/kim.html"));});
 app.get("/about", function(req, res) {res.sendFile(path.join(__dirname, "../suites/about.html"));});
 app.get("/events", function(req, res) {res.sendFile(path.join(__dirname, "../suites/events.html"));});
 app.get("/menu", function(req, res) {res.sendFile(path.join(__dirname, "../suites/menu.html"));});
@@ -310,6 +333,8 @@ app.get("/about", function(req, res) {res.sendFile(path.join(__dirname, "../suit
 app.get("/timeline", function(req, res) {res.sendFile(path.join(__dirname, "../suites/timeline.html"));});
 app.get("/specials", function(req, res) {res.sendFile(path.join(__dirname, "../suites/specials.html"));});
 app.get("/admin.jimbos.com", function(req, res) {res.sendFile(path.join(__dirname, "../suites/kim.html"));});
+
+
 
 
 

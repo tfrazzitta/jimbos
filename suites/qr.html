@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Jimbos Bar & Grill</title>
+    <link rel="icon" href="myicon.ico" type="ico.icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://calendar.google.com/calendar/static/ef3f99a173d6957726270e024c6668b9embedcompiled_fastui.css">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/custom_calendar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="https://www.google.com/calendar/969ff39784188d8d017a0c60c8f2558aembedcompiled__en_gb.js"></script>
+    
+    
+  </head>
+  <body style="background-color: black">
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="z-index: -1 !important">
+    <div class="modal-content text-center"><span> I'm Sorry!</span> The following items are not available today
+      <div class="modal-body" id="mod" style="font-family: Playfair Display;
+    color: #f23a2e; font-weight: bold">
+       <!--  <div class="container">
+          <img src= "images/t-o.jpg" class="img-responsive" style="width: 100%">
+        </div> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="font-family:Playfair Display;background-color: #f23a2e;color:#fff!important;width:100%">Go to Menu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-backdrop.show {
+    display: none;
+  }
+
+  .modal-content{
+    font-family: Playfair Display;
+    color:black;
+   /* padding-top:10px;*/
+
+  }
+  span{
+    font-weight: bold;
+    font-size: 25px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+   <script src="https://momentjs.com/downloads/moment-timezone.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/load.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/menu-items.js"></script>
+  <script> $('#exampleModal').modal('toggle');
+</script>
+
+
+<script>
+
+
+$.ajax({
+  method: "get",
+  url: "/jim"
+}).done(function(data) {
+  console.log(data)
+  for(i=0;i<data[0].missing.length;i++){
+    console.log(data[0])
+    $("#mod").append("<ul>" + data[0].missing[i]+ "</ul>")
+
+  }
+
+  
+})
+
+</script>
+
+
+<script>
+
+$(document).on("click","#close-modal",function(){
+var d= new Date().getDay();
+console.log(d)
+
+
+if(d == 1 || d ==2 || d == 3 ){
+  console.log("HIIII")
+  window.location.replace("/images/menu.pdf")
+
+}
+else{
+window.location.replace("/images/no-sushi-menu.pdf");
+}
+
+
+})
+</script>

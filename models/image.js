@@ -4,11 +4,12 @@ var Schema = mongoose.Schema;
 
 // Create a Schema for capturing clicks. We'll use clickID to update the same clickCounter
 var ImageSchema = new Schema({
-      filename: {type: String},
-      path:{type:String}, 
-      //data:{type:String},                                                          
-      data: Buffer,
-      id:{type: Schema.Types.ObjectId}  
+      // filename: {type: String},
+      // path:{type:String}, 
+      // data:{type:String},                                                          
+      // data: Buffer,
+      // id:{type: Schema.Types.ObjectId}  
+      missing:Array
 });
 
 // Create the Model

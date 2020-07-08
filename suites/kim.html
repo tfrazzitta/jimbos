@@ -40,33 +40,29 @@
   <div class="jumbotron" style="background-color: transparent;"></div>
     <div class="row align-items-center">
 
-      <div class="col-md-12 text-center" data-aos="fade">
-          <img src="images/spinner.gif" class="img-fluid" id="loader">
+  
+      <div class="col-md-6 text-center">
+      <h1 class="text-centert">We do not have..</h1><br>
+             <form action="/profile" method="post">
+              <input type="text" id="fname" name="item1" ><br><br>
+              <input type="text" id="gname" name="item2"><br><br>
+              <input type="text" id="gname1" name="item3"><br><br>
+              <input type="text" id="fname2" name="item4"><br><br>
+               <input type="submit" value="submit" class="s">
+             </form>
+          </div> <!--  <br><br><br><br><br> -->
+
+      <div class="col-md-2 text-center" data-aos="fade"></div><br>
+          
+      <div class="col-md-4 text-center" data-aos="fade">
+           <h1 class="text-centert">We are out of :</h1><br>
+           <form id="form">
+           <button id="submit" class="s">Delete</button>
+           </form>
       </div>
 
-      <div class="col-md-12 text-center"><h1 class="text-centert">For Kim</h1><br><br>
-      <!--   <form action="/kim" method="POST" id="kim-form">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Paste in your link</label>
-            <input class="form-control" name="link">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form> -->
-        <br>
-            <!-- <label for="exampleInputEmail1">or</label> -->
-
-          <div class="div"><h3>Choose File</h3>
-             <form action="/profile" method="post" enctype="multipart/form-data">
-              <input type="file" name="avatar" id="file-1">
-              <input type="submit" value="upload" id="file" multiple="multiple" onchange="AutomaticClose()">
-             </form>
-          </div>  <br><br><br><br><br>
-<!-- 
-          <form action="/del" method="post">
-              <input type="submit" class="btn-primary" value="Delete Image">
-          </form>   -->
-              <button type="submit" class="btn-primary" id="Delete">Delete</button><br><br>
-              <p id="del-message" style="color: black"> </p>
+            <!--   <button type="submit" class="btn-primary" id="Delete">Delete</button><br><br>
+              <p id="del-message" style="color: black"> </p> -->
 
       </div>
     </div>
@@ -77,11 +73,9 @@
     $("#loader").hide();
     $("#file").hide();
     $("#file-1").change(function() {$("#file").trigger("click");$("#loader").fadeIn();});
-
+var checkboxArray=[]
 
 $(document).on("click","#Delete",function(){
-
-
       $.ajax({
                   method: "get",
                   url: "/del"
@@ -90,6 +84,62 @@ $(document).on("click","#Delete",function(){
             })
 })
 
+
+
+function Display(){
+
+
+$.ajax({
+  method: "get",
+  url: "/jim"
+}).done(function(data) {
+  if(data.length==0){
+     return false;
+  }
+  
+  else{
+
+      for(i=0;i<data[0].missing.length;i++){
+    console.log(data[0])
+    $("#form").prepend("<ul><input name='"+data[0].missing[i]+"' class='data' type='checkbox' value='"+data[0].missing[i]+"' >&nbsp;&nbsp;&nbsp;&nbsp;" +data[0].missing[i]+ "</input></ul>")
+    }
+  }
+
+})
+}
+
+
+$(document).on("click",".data",function(){
+  var a = $(this).val();
+  if($(this).is(":checked")==true){
+    checkboxArray.push(a)
+    console.log(checkboxArray)
+
+  }
+  else{
+    var num = checkboxArray.indexOf(a)
+    checkboxArray.splice(num,1);
+    console.log(checkboxArray)
+  }
+
+})
+
+
+$(document).on("click","#submit",function(){
+console.log(checkboxArray)
+$.ajax({
+  method: "post",
+  url: "/del-box",
+  data:{checkboxArray}
+}).done(function(data) {
+  Display();
+
+})
+
+
+})
+
+Display();
 </script>
 
   <script src="https://momentjs.com/downloads/moment.js"></script>
@@ -140,6 +190,29 @@ $(document).on("click","#Delete",function(){
     font-size: 26px;
     line-height: 0px;
     background-color: red;
+    }
+
+    .s{
+      font-family:Playfair Display;
+      background-color: #f23a2e;
+      color:#fff!important
+    }
+    ul{
+       font-family:Playfair Display;
+     color: #f23a2e;
+     font-weight: bold;
+     font-size: 25px;
+     text-align: left;
+    }
+    button,.s{
+    width: 75%;
+    }
+
+    #fname,#gname,#gname1,#fname2{
+    font-family:Playfair Display;
+     color: #f23a2e;
+     font-weight: bold;
+     font-size: 25px;
     }
 
 
