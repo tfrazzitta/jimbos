@@ -111,21 +111,30 @@ $.ajax({
   method: "get",
   url: "/jim"
 }).done(function(data) {
-  console.log(data[0].missing);    
-  console.log("here")
-  if(data.length==0 || data[0].missing.length==0){
-   // return false;
-   $( "#close-modal" ).trigger( "click" );
 
-
-  }
-  else{
-      $('#exampleModal').modal('toggle');
-
-      for(i=0;i<data[0].missing.length;i++){
-        console.log(data[0])
-        $("#mod").append("<ul>" + data[0].missing[i]+ "</ul>")
+var d= new Date().getDay();  
+if(data.length==0 || data[0].missing.length==0 ){
+      if(d == 1 || d ==2){
+         $('#exampleModal').modal('toggle');
+         $("#mod").append("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
       }
+      else{
+         $( "#close-modal" ).trigger( "click" );
+      }
+}
+ 
+  else{
+        $('#exampleModal').modal('toggle');
+          for(i=0;i<data[0].missing.length;i++){
+            console.log(data[0])
+            $("#mod").append("<ul>" + data[0].missing[i]+ "</ul>")
+          }
+
+        if(d == 1 || d ==2){
+          $('#exampleModal').modal('toggle');
+          $("#mod").prepend("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
+        }
+
   }
 
 
@@ -139,19 +148,14 @@ $.ajax({
 <script>
 
 $(document).on("click","#close-modal",function(){
-var d= new Date().getDay();
-console.log(d)
-
-
-if(d == 1 || d ==2 || d == 3 ){
-  console.log("HIIII")
-  window.location.replace("/images/menu.pdf")
-
-}
-else{
-window.location.replace("/images/no-sushi-menu.pdf");
-}
-
-
+  var d= new Date().getDay();
+  console.log(d)
+  
+  if(d == 1 || d ==2){
+    window.location.replace("/images/no-sushi-menu.pdf")
+  }
+  else{
+    window.location.replace("/images/menu.pdf");
+  }
 })
 </script>
