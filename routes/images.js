@@ -218,7 +218,7 @@ if(req.body.item4 != ""){ itemArray.push(req.body.item4)}
 
 
 Image.find({}).exec(function(error,data){
-  if(data.length==0){
+  if(data.length==0 || data[0].missing==0){
         console.log("NEW DOC")
          var NewImage= new Image ({missing: itemArray
           })
@@ -230,7 +230,7 @@ Image.find({}).exec(function(error,data){
             console.log(data[0].missing)
             console.log(req.body)
 
-            Image.updateMany({}, {$push: {missing: {$each:itemArray}}}).exec(function(error,data){
+            Image.updateMany({},{$push: {missing: {$each:itemArray}}}).exec(function(error,data){
               Image.find({}).exec(function(error,data1){ console.log(data1)})
             })
     
@@ -258,19 +258,9 @@ app.get("/uploads",function(req,res){
         res.send(base64data);
     }
    })
-
 })
 
  
-
-
-
-
-
-
-
-
-
 
  app.get("/jim",function(req,res){
     Image.find({}).exec(function(error,data2){
@@ -283,7 +273,6 @@ app.get("/uploads",function(req,res){
   app.get("/del",function(req,res){
     Image.deleteMany({}).exec(function(error,data2){
       if(data2.length==0){res.send("Nothing to Delete")}
-      //res.redirect("/kim.html")
       else{res.send("Deleted")};
     })
 
