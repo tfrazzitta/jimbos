@@ -209,38 +209,32 @@ app.post('/profile-1', upload.single('avatar'), function (req, res, next) {
 
 
 app.post('/profile', function (req, res, next) {
+console.log(req.body)
 var itemArray=[];
 if(req.body.item1 != ""){ itemArray.push(req.body.item1)}
 if(req.body.item2 != ""){ itemArray.push(req.body.item2)}
 if(req.body.item3 != ""){ itemArray.push(req.body.item3)}
 if(req.body.item4 != ""){ itemArray.push(req.body.item4)}
 
-
-
 Image.find({}).exec(function(error,data){
-  if(data.length==0 || data[0].missing==0){
-        console.log("NEW DOC")
-         var NewImage= new Image ({missing: itemArray
-          })
-          NewImage.save(function(err,doc){console.log(doc)})
+  if(data.length==0){
+      console.log("NEW DOC")
+      var NewImage= new Image ({missing: itemArray})
+      NewImage.save(function(err,doc){console.log(doc);
+      res.redirect("/manager")})
   }
   
   else{
-            console.log("Existing DOC")
-            console.log(data[0].missing)
-            console.log(req.body)
-
-            Image.updateMany({},{$push: {missing: {$each:itemArray}}}).exec(function(error,data){
-              Image.find({}).exec(function(error,data1){ console.log(data1)})
-            })
-    
-  }
-
-
-})
-
-res.redirect("/manager")
+      console.log("Existing DOC")
+      console.log(data[0].missing)
+      console.log(req.body)
+      Image.updateMany({},{$push: {missing: {$each:itemArray}}}).exec(function(error,data){
+      Image.find({}).exec(function(error,data1){ console.log(data1)
+      res.redirect("/manager")})
+      })
+    }
   })
+})
 
 
  
@@ -284,15 +278,19 @@ app.get("/uploads",function(req,res){
 
   app.post("/del-box",function(req,res){
    console.log(req.body.checkboxArray)
-   var check= req.body.checkboxArray;
+   var check= req.body.checkboxArray; 
+   console.log("")
+   console.log(check.length)
   var callsCompleted2=0;
    for(i=0;i<check.length;i++){
     callsCompleted2++;
-    Image.update({},{ $pull: { missing:
-    { $in: [ check[i] ] }} },
+     //[ check[i] ]
+     console.log(check[i])
+    Image.updateMany({},{ $pull: { missing:
+    { $in: check[i]}} },
     { multi: true }).exec(function(error,data3){
       if(error){console.log(error)}
-      else{console.log(data3)}
+      else{console.log(data3);console.log("DATAA333")}
    
 })
 
