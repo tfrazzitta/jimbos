@@ -118,7 +118,8 @@ var d= new Date().getDay();
 if(data.length==0 || data[0].missing.length==0 ){
       if(d == 1 || d ==2){
          $('#exampleModal').modal('toggle');
-         $("#mod").append("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
+         // $("#mod").append("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
+         $("#mod").append("<ul><h3>No Sushi<br> Monday & Tuesday</h3></ul>")
       }
       else{
          $( "#close-modal" ).trigger( "click" );
@@ -134,7 +135,8 @@ if(data.length==0 || data[0].missing.length==0 ){
 
         if(d == 1 || d ==2){
           $('#exampleModal').modal('toggle');
-          $("#mod").prepend("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
+          // $("#mod").append("<ul><h3>We Do Not Have Sushi Today</h3></ul>")
+           $("#mod").append("<ul><h3>No Sushi<br> Monday & Tuesday</h3></ul>")
         }
 
   }
