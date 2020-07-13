@@ -58,39 +58,39 @@ $(document).on("click",".hide-tweets",function(){
 
 ///TWITTER FEED END////
 
-var genericMessage='Toseedetailedinformationforautomaticallycreatedeventslikethisone,usetheofficialGoogleCalendarapp.https://g.co/calendarThiseventwascreatedfromanemailyoureceivedinGmail.https://mail.google.com/mail?extsrc=cal&plid=ACUX6DNpOz_Qba5sc7TZdi7yiFaXcsNMUpeWNTU';
+//var genericMessage='Toseedetailedinformationforautomaticallycreatedeventslikethisone,usetheofficialGoogleCalendarapp.https://g.co/calendarThiseventwascreatedfromanemailyoureceivedinGmail.https://mail.google.com/mail?extsrc=cal&plid=ACUX6DNpOz_Qba5sc7TZdi7yiFaXcsNMUpeWNTU';
 
 ////CALENDAR FEED////4
-    $.ajax({
-            method: "GET",
-            url: "/check-cred"
-          }).done(function(data) {
-             console.log(data)
-              for(i=0;i<data.length;i++){
-                var a = new Date(data[i].startTime)
-                var b = new Date(data[i].endTime)
-                var startTime= a.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
-                var endTime= b.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
-                var date= a.toLocaleString('en-us',{weekday:'long',month:'long',day:'numeric'})
-                console.log(startTime)
-                console.log(endTime)
-                console.log(date)
-                // console.log(data[i].description.replace(/\s/g, ""))
-             // data[i].description==undefined || 
-                if(data[i].description==undefined || data[i].description.replace(/\s/g, "")===genericMessage){data[i].description="";console.log("JJJJ")}
-                if(data[i].timeSpan=="Invalid Date - Invalid Date"){data[i].timeSpan="";}
-                if(data[i].date=="Invalid Date"){data[i].date="";}
-                // if(data[i].summary==undefined){data[i].description="";}
+    // $.ajax({
+    //         method: "GET",
+    //         url: "/check-cred"
+    //       }).done(function(data) {
+    //          console.log(data)
+    //           for(i=0;i<data.length;i++){
+    //             var a = new Date(data[i].startTime)
+    //             var b = new Date(data[i].endTime)
+    //             var startTime= a.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
+    //             var endTime= b.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
+    //             var date= a.toLocaleString('en-us',{weekday:'long',month:'long',day:'numeric'})
+    //             console.log(startTime)
+    //             console.log(endTime)
+    //             console.log(date)
+    //             // console.log(data[i].description.replace(/\s/g, ""))
+    //          // data[i].description==undefined || 
+    //             if(data[i].description==undefined || data[i].description.replace(/\s/g, "")===genericMessage){data[i].description="";console.log("JJJJ")}
+    //             if(data[i].timeSpan=="Invalid Date - Invalid Date"){data[i].timeSpan="";}
+    //             if(data[i].date=="Invalid Date"){data[i].date="";}
+    //             // if(data[i].summary==undefined){data[i].description="";}
 
-                var pre='<div class="p-4"><div id="flex" class="d-flex block-testimony"><div class="person mr-3 flex"><img src="'
-                  +data[i].link+'" id="event-img" alt="Image" class="img-fluid rounded-1"></div><div style="line-height: 20px"><h2 class="white-text-1">'
-                  +data[i].summary+'</h2><blockquote class="white-text">'
-                  +date+'</blockquote><blockquote class="white-text">'
-                  +data[i].description+'</blockquote><blockquote class="white-text">'
-                  +startTime+"-"+endTime+'</blockquote></div></div></div><br>';
-                $("#append-cal").append(pre)
-              }
-          })
+    //             var pre='<div class="p-4"><div id="flex" class="d-flex block-testimony"><div class="person mr-3 flex"><img src="'
+    //               +data[i].link+'" id="event-img" alt="Image" class="img-fluid rounded-1"></div><div style="line-height: 20px"><h2 class="white-text-1">'
+    //               +data[i].summary+'</h2><blockquote class="white-text">'
+    //               +date+'</blockquote><blockquote class="white-text">'
+    //               +data[i].description+'</blockquote><blockquote class="white-text">'
+    //               +startTime+"-"+endTime+'</blockquote></div></div></div><br>';
+    //             $("#append-cal").append(pre)
+    //           }
+    //       })
 ///END CALENDAR FEED//
 
 

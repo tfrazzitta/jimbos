@@ -16,146 +16,146 @@ const code ='node_modules/async/dist/ssn.json';
 
 module.exports=function(app){
   
-
-///GOOGLE CALENDAR 
-app.get("/check-cred", function(req,res1){
 // credentials.json
-      fs.readFile(code, (err, content) => { 
-        if (err) return console.log('Error loading client secret file:', err);
-        authorize(JSON.parse(content), listEvents);
-      });
+///GOOGLE CALENDAR 
+// app.get("/check-cred", function(req,res1){
 
-      function authorize(credentials, callback) {
-        const {client_secret, client_id, redirect_uris} = credentials.installed;
-        const oAuth2Client = new google.auth.OAuth2(
-            client_id, client_secret, redirect_uris[0]);
+//       fs.readFile(code, (err, content) => { 
+//         if (err) return console.log('Error loading client secret file:', err);
+//         authorize(JSON.parse(content), listEvents);
+//       });
 
-        fs.readFile(TOKEN_PATH, (err, token) => {
-          if (err) return getAccessToken(oAuth2Client, callback);
-          oAuth2Client.setCredentials(JSON.parse(token));
-          callback(oAuth2Client);
-        });
-      }
+//       function authorize(credentials, callback) {
+//         const {client_secret, client_id, redirect_uris} = credentials.installed;
+//         const oAuth2Client = new google.auth.OAuth2(
+//             client_id, client_secret, redirect_uris[0]);
 
-      function getAccessToken(oAuth2Client, callback) {
-          const authUrl = oAuth2Client.generateAuthUrl({
-            access_type: 'offline',
-            scope: SCOPES,
-          });
-          console.log('Authorize this app by visiting this url:', authUrl);
-          const rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout,
-          });
-          rl.question('Enter the code from that page here: ', (code) => {
-            rl.close();
-            oAuth2Client.getToken(code, (err, token) => {
-              if (err) return console.error('Error retrieving access token', err);
-              oAuth2Client.setCredentials(token);
-              // Store the token to disk for later program executions
-              fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
-                if (err) console.error(err);
-                console.log('Token stored to', TOKEN_PATH);
-              });
-              callback(oAuth2Client);
+//         fs.readFile(TOKEN_PATH, (err, token) => {
+//           if (err) return getAccessToken(oAuth2Client, callback);
+//           oAuth2Client.setCredentials(JSON.parse(token));
+//           callback(oAuth2Client);
+//         });
+//       }
 
-            });
-          });
-      }
+//       function getAccessToken(oAuth2Client, callback) {
+//           const authUrl = oAuth2Client.generateAuthUrl({
+//             access_type: 'offline',
+//             scope: SCOPES,
+//           });
+//           console.log('Authorize this app by visiting this url:', authUrl);
+//           const rl = readline.createInterface({
+//             input: process.stdin,
+//             output: process.stdout,
+//           });
+//           rl.question('Enter the code from that page here: ', (code) => {
+//             rl.close();
+//             oAuth2Client.getToken(code, (err, token) => {
+//               if (err) return console.error('Error retrieving access token', err);
+//               oAuth2Client.setCredentials(token);
+//               // Store the token to disk for later program executions
+//               fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
+//                 if (err) console.error(err);
+//                 console.log('Token stored to', TOKEN_PATH);
+//               });
+//               callback(oAuth2Client);
 
-      function listEvents(auth) {
-      const calendar = google.calendar({version: 'v3', auth});
-      calendar.events.list({
+//             });
+//           });
+//       }
 
-        //calendarId:encodeURIComponent('p51tsobed51ggtvudmug0tum1ls@group.calendar.google.com'),
-        calendarId:'primary',
-        timeMin: (new Date()).toISOString(),
-        //timeMin: (new Date()),
-        maxResults: 7,
-        singleEvents: true,
-        orderBy: 'startTime',
-      }, (err, res) => { 
-        if (err) return console.log('The API returned an error: ' + err);
-        const events = res.data.items;
-        if (events.length) {
-          console.log('Upcoming 10 events:');
-          events.map((event, i) => {
+//       function listEvents(auth) {
+//       const calendar = google.calendar({version: 'v3', auth});
+//       calendar.events.list({
+
+//         //calendarId:encodeURIComponent('p51tsobed51ggtvudmug0tum1ls@group.calendar.google.com'),
+//         calendarId:'primary',
+//         timeMin: (new Date()).toISOString(),
+//         //timeMin: (new Date()),
+//         maxResults: 7,
+//         singleEvents: true,
+//         orderBy: 'startTime',
+//       }, (err, res) => { 
+//         if (err) return console.log('The API returned an error: ' + err);
+//         const events = res.data.items;
+//         if (events.length) {
+//           console.log('Upcoming 10 events:');
+//           events.map((event, i) => {
             
-        //console.log(event)
-          var description= event.description;
-          var band =event.summary;
-          var end=new Date(event.start.dateTime)
-          var tiempo= new Date(event.end.dateTime);
-          var date=new Date(event.start.dateTime);
-          //var endTime= tiempo.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
-          // var startTime= end.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
-           //var date= date.toLocaleString('en-us',{weekday:'long',month:'long',day:'numeric'})
-          console.log(band.indexOf("Wine"))
-          var startTime=end;
-          var endTime=tiempo;
+//         //console.log(event)
+//           var description= event.description;
+//           var band =event.summary;
+//           var end=new Date(event.start.dateTime)
+//           var tiempo= new Date(event.end.dateTime);
+//           var date=new Date(event.start.dateTime);
+//           //var endTime= tiempo.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
+//           // var startTime= end.toLocaleString('en-us',{hour:'numeric',minute:'numeric',hour12:true})
+//            //var date= date.toLocaleString('en-us',{weekday:'long',month:'long',day:'numeric'})
+//           console.log(band.indexOf("Wine"))
+//           var startTime=end;
+//           var endTime=tiempo;
 
-          var link=event.location;
+//           var link=event.location;
 
-          var CalendarObject={
+//           var CalendarObject={
 
-              endTime:endTime,
-              startTime:startTime,
-              description:description,
-              summary:band,
-              timeSpan:startTime+" - "+endTime,
-              date:date,
-              link:link,
-              number:i
-            }
+//               endTime:endTime,
+//               startTime:startTime,
+//               description:description,
+//               summary:band,
+//               timeSpan:startTime+" - "+endTime,
+//               date:date,
+//               link:link,
+//               number:i
+//             }
 
-       if(band.indexOf("Wine") >= 0){CalendarObject.link="/images/wine.jpg";}
+//        if(band.indexOf("Wine") >= 0){CalendarObject.link="/images/wine.jpg";}
 
-       else if(event.attachments==undefined && link!= undefined){
-            CalendarObject.altLink="";
-        }
+//        else if(event.attachments==undefined && link!= undefined){
+//             CalendarObject.altLink="";
+//         }
 
-        // else if(event.attachments!=undefined && link== undefined){
-        //      CalendarObject.link="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
-        //      CalendarObject.altLink="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
-        // }
+//         // else if(event.attachments!=undefined && link== undefined){
+//         //      CalendarObject.link="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
+//         //      CalendarObject.altLink="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
+//         // }
 
-        // else if(event.attachments!=undefined && link!= undefined){
-        //      CalendarObject.link="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
-        //      CalendarObject.altLink="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
-        // }
+//         // else if(event.attachments!=undefined && link!= undefined){
+//         //      CalendarObject.link="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
+//         //      CalendarObject.altLink="https://lh3.google.com/u/0/d/"+event.attachments[0].fileId+"=w762-h570-p-k-nu-iv1";
+//         // }
 
-        else{
-            if (band.toLowerCase()==="Tim Reynolds".toLowerCase()) {CalendarObject.link="/images/tim.jpg";}
-            if(band.toLowerCase()==="Ned Ryerson".toLowerCase()){CalendarObject.link="/images/ned.jpg";}
-            if(band.toLowerCase()==="Sneak Attack".toLowerCase()){CalendarObject.link="/images/sneak.jpg";}
-            if(band.toLowerCase()==="Dj Cali".toLowerCase()){CalendarObject.link="/images/drinks.jpg";}
-            if(band.toLowerCase()==="Sir Cedric".toLowerCase()){CalendarObject.link="/images/cedrick.jpg";}
-        }
+//         else{
+//             if (band.toLowerCase()==="Tim Reynolds".toLowerCase()) {CalendarObject.link="/images/tim.jpg";}
+//             if(band.toLowerCase()==="Ned Ryerson".toLowerCase()){CalendarObject.link="/images/ned.jpg";}
+//             if(band.toLowerCase()==="Sneak Attack".toLowerCase()){CalendarObject.link="/images/sneak.jpg";}
+//             if(band.toLowerCase()==="Dj Cali".toLowerCase()){CalendarObject.link="/images/drinks.jpg";}
+//             if(band.toLowerCase()==="Sir Cedric".toLowerCase()){CalendarObject.link="/images/cedrick.jpg";}
+//         }
 
-    CalendarArray.push(CalendarObject)
+//     CalendarArray.push(CalendarObject)
 
-                if(callsCompleted==events.length){
-                  res1.send(CalendarArray)
-                  callsCompleted=1;
+//                 if(callsCompleted==events.length){
+//                   res1.send(CalendarArray)
+//                   callsCompleted=1;
 
-                }
-                else{
-                  callsCompleted++;
-                }
+//                 }
+//                 else{
+//                   callsCompleted++;
+//                 }
 
-          });
+//           });
   
           
-        } 
-        else {
-          console.log('No upcoming events found.');
-        }
+//         } 
+//         else {
+//           console.log('No upcoming events found.');
+//         }
 
-      });
-    }
-    CalendarArray=[];
-})
-///GOOGLE CALENDAR 
+//       });
+//     }
+//     CalendarArray=[];
+// })
+// ///GOOGLE CALENDAR 
     
 
 ///UPLOAD IMAGE FOR KIM
@@ -264,10 +264,11 @@ app.get("/uploads",function(req,res){
 })
 
 
-  app.get("/del",function(req,res){
+  app.post("/del",function(req,res){
     Image.deleteMany({}).exec(function(error,data2){
       if(data2.length==0){res.send("Nothing to Delete")}
-      else{res.send("Deleted")};
+      else{res.redirect('/manager')};
+    // res.send("Deleted");
     })
 
 })
