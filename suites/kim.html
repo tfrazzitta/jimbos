@@ -63,18 +63,44 @@
            </form>
       
 
-       <form action="/del" method="post"><br>
-       <input type="submit" value="Delete All" class="s" style="width: 50%">
-       </form>
-      
-      </div>
-            <!--   <button type="submit" class="btn-primary" id="Delete">Delete</button><br><br>
-              <p id="del-message" style="color: black"> </p> -->
+            <form action="/del" method="post"><br>
+            <input type="submit" value="Delete All" class="s" style="width: 50%">
+            </form>
 
+      </div>
+           
       </div>
     </div>
   </div>
 </div>
+
+<div id="paypal-button-container"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+      },
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '.05'
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button-container');
+</script>
 
 <script>
     $("#loader").hide();
