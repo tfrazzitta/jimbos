@@ -37,12 +37,12 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="z-index: -1 !important">
-    <div class="modal-content text-center"><span> I'm Sorry!</span> The following items are not available today
+    <div class="modal-content text-center"><span>I'm Sorry!</span> <h3>The following items are NOT available today</h3>
       <div class="modal-body" id="mod" style="font-family: Playfair Display;
     color: #f23a2e; font-weight: bold">
       </div>
-      <div class="modal-footer">
-        <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="font-family:Playfair Display;background-color: #f23a2e;color:#fff!important;width:100%">Go to Menu</button>
+      <div class="modal-footer" style="background-color: grey">
+        <button type="button" id="close-modal" class="btn btn-secondary" data-dismiss="modal" style="font-family:Playfair Display;background-color: #f23a2e;color:#fff!important;width:100%;font-size: 50px">Go to Menu</button>
       </div>
     </div>
   </div>
@@ -53,6 +53,10 @@
     display: none;
   }
 
+
+h3{
+  background-color: yellow;
+}
   .modal-content{
     font-family: Playfair Display;
     color:black;
@@ -61,11 +65,22 @@
   }
   span{
     font-weight: bold;
-    font-size: 25px;
+    font-size: 50px;
   }
 
 .modal-body{
   padding-right:50px;
+}
+
+ul{
+  font-size: 25px;
+    padding-left: 0px;
+    /* padding-right: 11px; */
+    text-align: left;
+   /* display: list-item;*/
+    margin-left: 30px;
+    font-family: Playfair Display;
+    color: darkblue;
 }
 </style>
 
